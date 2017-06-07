@@ -3,6 +3,21 @@
 //error_reporting(E_ALL ^ E_NOTICE);
 session_start();
 ?>
+				<?php
+				$servername = "localhost";
+				$username = "root";
+				$password = "";
+				$dbname = "finance_db";
+
+				$conn = new mysqli($servername,$username,$password,$dbname);
+
+				//if you want to read thai letter on web or database VERY IMPORTANT!! 
+				mysqli_set_charset($conn, "utf8");
+
+				if($conn->connect_error){
+    				die("Connection failed: " .$conn->connect_error);
+				}
+				?>
 <html lang="en">
 
 <head>
@@ -115,22 +130,6 @@ session_start();
 				<a href="finance-helper.php" class="btn btn-skin" role="button">back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="table.php" class="btn btn-skin" role="button">set table</a>
 	            <br><br>
-
-				<?php
-				$servername = "localhost";
-				$username = "root";
-				$password = "";
-				$dbname = "finance_db";
-
-				$conn = new mysqli($servername,$username,$password,$dbname);
-
-				//if you want to read thai letter on web or database VERY IMPORTANT!! 
-				mysqli_set_charset($conn, "utf8");
-
-				if($conn->connect_error){
-    				die("Connection failed: " .$conn->connect_error);
-				}
-				?>
 
 				<?php
 				

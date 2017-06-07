@@ -135,12 +135,6 @@
 				<input class = "btn btn-skin" type = "submit" value = "login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href = "register-form.php" class = "btn btn-skin" role = "button">register</a><br><br>
 			    
-				<script>
-				$(function() {
-    			$.growl({ title: "Info", message: "The kitten is awake!" });
-				});
-
-				</script>
 				<br><br><br><br>
 
 			</center>

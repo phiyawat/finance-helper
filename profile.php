@@ -4,6 +4,21 @@
 session_start();
 
 ?>
+<?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "finance_db";
+
+    $conn = new mysqli($servername,$username,$password,$dbname);
+
+    //if you want to read thai letter on web or database VERY IMPORTANT!! 
+    mysqli_set_charset($conn, "utf8");
+
+    if($conn->connect_error){
+    die("Connection failed: " .$conn->connect_error);
+    }
+?>
 <html lang="en">
 
 <head>
@@ -113,21 +128,8 @@ session_start();
 			</div>
 			<br><br>
 			<center>
-			    <?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "finance_db";
 
-                $conn = new mysqli($servername,$username,$password,$dbname);
-
-                //if you want to read thai letter on web or database VERY IMPORTANT!! 
-                mysqli_set_charset($conn, "utf8");
-
-                if($conn->connect_error){
-                die("Connection failed: " .$conn->connect_error);
-                }
-
+			<?php
 			$sql = "SELECT * FROM member  WHERE M_ID = '".$_SESSION['Mid']."'";
 
             $result = $conn->query($sql);

@@ -3,6 +3,21 @@
 //error_reporting(E_ALL ^ E_NOTICE);
 session_start();
 ?>
+<?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "finance_db";
+
+    $conn = new mysqli($servername,$username,$password,$dbname);
+
+    //if you want to read thai letter on web or database VERY IMPORTANT!! 
+    mysqli_set_charset($conn, "utf8");
+
+    if($conn->connect_error){
+    die("Connection failed: " .$conn->connect_error);
+    }
+?>
 <html lang="en">
 
 
@@ -128,23 +143,6 @@ session_start();
 
 		    <input class='btn btn-skin' type = 'submit' value = 'select'><br><br>
 		    </form>
-
-            <?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "finance_db";
-
-                $conn = new mysqli($servername,$username,$password,$dbname);
-
-                //if you want to read thai letter on web or database VERY IMPORTANT!! 
-                mysqli_set_charset($conn, "utf8");
-
-                if($conn->connect_error){
-                die("Connection failed: " .$conn->connect_error);
-                }
-			?>
-
 
 			<br>
 
