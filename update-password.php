@@ -18,7 +18,7 @@ $old = $_REQUEST['oldpassword'];
 $password = $_REQUEST['password'];
 $cpassword = $_REQUEST['cpassword'];
 
-
+if(strcmp($password,$cpassword) == 0){
 
 $sql = "UPDATE login_member SET M_Pass = '".$cpassword."' WHERE M_ID = '".$_SESSION['Mid']."'";
 
@@ -26,8 +26,11 @@ if($conn->query($sql) === TRUE){
 	sleep(4);
 	header("location: profile.php");
 }
+}
+
 else{
-	echo "Error" .$sql. "<br>" .$conn->error;
+	echo "error: Wrong password or password not matches <br><br>";
+	echo "<a href='change-password.php' role='button'>back</a>";
 }
 
 
